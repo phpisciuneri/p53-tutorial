@@ -1,0 +1,6 @@
+*.pyc
+*.log
+P53.TUTORIAL.o*
+seg_logs/
+traj_segs/
+west.h5
