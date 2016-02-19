@@ -10,20 +10,14 @@ case $HOSTNAME in
         # Load the modules!
         echo "LOADING MODULES FOR FRANK."
 
-        source /etc/profile.d/sam-modules.sh
         module purge
-        module load sys
-        module load queue
-        #module load gromacs/4.6.3-intel13-sse41
-        module load gromacs/4.6.5-gcc-4.8.2-rhel
-        module load westpa/1.0-gcc-4.8.2-yaml
+	module load queue
+	module load westpa/anaconda2-2.4.1
 
         # Should we use the local scratch?
         export USE_LOCAL_SCRATCH=1
         export SCRATCHROOT=$SCRATCH
         export SWROOT=""
-        # Inform WEST where to find Python and our other scripts where to find WEST
-        export WEST_PYTHON=$(which python2.7)
 
         # Explicitly name our simulation root directory
         if [[ -z "$WEST_SIM_ROOT" ]]; then
