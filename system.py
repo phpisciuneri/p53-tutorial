@@ -21,9 +21,9 @@ class System(WESTSystem):
         """
         # Many of these are now specified in the west.cfg file.
         # They are left here for legacy purposes.
-        #self.pcoord_ndim  = 2
-        #self.pcoord_len   = 11
-        #self.pcoord_dtype = numpy.float32
+        self.pcoord_ndim  = 2
+        self.pcoord_len   = 11
+        self.pcoord_dtype = numpy.float32
         # As the RMSD coordinate is taken relative to the coil, aligned on the coil,
         # it will remain sensitive to coil changes.  It's not awful to assume the maximum is
         # not dissimilar to the maximum for the distance; something around 57 A, as
@@ -42,11 +42,9 @@ class System(WESTSystem):
         self.color_binbounds = [-0.5,0.5,1.5,float('inf')]
 
         # A simple rectilinear binmapper, with the third dimension as color, to ensure good sampling.
-        self.bin_mapper   = RectilinearBinMapper([self.rmsd_binbounds, self.color_binbounds])
-
-        #self.bin_target_counts      = numpy.empty((self.bin_mapper.nbins,),
-        #                                numpy.int)
-        #self.bin_target_counts[...] = 8
+        self.bin_mapper = RectilinearBinMapper( [self.rmsd_binbounds, self.color_binbounds] )
+        self.bin_target_counts = numpy.empty( (self.bin_mapper.nbins,), numpy.int )
+        self.bin_target_counts[...] = 8
 
 def pcoord_loader_color_tracker(fieldname, coord_file, segment, single_point=False):
     """
