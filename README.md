@@ -22,15 +22,21 @@
 2. Set your environment:
 
 	```bash
-	$ module purge
-	$ module load queue
-	$ module load westpa/anaconda2-2.4.1
+	$ . ./env.sh
+	$
 	$ module list
 Currently Loaded Modulefiles:
   1) moab/8.1.0                     5) modules                        9) openmpi/1.6.5-gcc4.8.2-rhel
   2) torque/5.1                     6) sys                           10) gromacs/4.6.5-gcc-4.8.2-rhel
   3) mam/8.1.0                      7) gcc/4.8.2-rhel                11) python/anaconda2-2.4.1
   4) queue                          8) mkl/2013.0/gnu-st             12) westpa/anaconda2-2.4.1
+   $
+   $ echo $WEST_ROOT
+/opt/sam/westpa-mpi
+   $ which w_run
+/opt/sam/westpa-mpi/bin/w_run
+   $ which w_init
+/opt/sam/westpa-mpi/bin/w_init
 	```
    
 3. Initialize the simulation:
