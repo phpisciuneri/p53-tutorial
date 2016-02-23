@@ -1,5 +1,8 @@
 #!/bin/bash
-source env.sh
+
+# load environment
+. ./env.sh
+
 ps aux | grep w_run | grep -v grep
 pkill -9 -f w_run
 
@@ -13,5 +16,4 @@ mkdir   seg_logs traj_segs istates
 
 BSTATE_ARGS="--bstate-file bstates/BASIS_STATES"
 
-$WEST_ROOT/bin/w_init $BSTATE_ARGS --segs-per-state 1 \
-  --work-manager=serial "$@"
+w_init $BSTATE_ARGS --segs-per-state 1 --work-manager=serial "$@"
